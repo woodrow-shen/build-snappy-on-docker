@@ -10,19 +10,15 @@ MAINTAINER woodrowshen woodrow.shen@canonical.com
 RUN \
 	apt-get update && \
 	apt-get install -y software-properties-common && \
-	apt-get install -y build-essential && \
 	apt-get install -y curl git htop man unzip vim wget && \
 	add-apt-repository -y ppa:snappy-dev/tools && \
 	apt-get update && \
-	apt-get install ubuntu-device-flash snappy-tools squashfs-tools && \
-	ssh-keygen -t rsa && \
-	useradd -r -s /bin/false -d /nonexistent -U clickpkg && \
-	useradd -r -s /bin/false -d /nonexistent -U snappypkg && \
+	apt-get install -y ubuntu-device-flash snappy-tools squashfs-tools && \
 	mv /sbin/udevadm /sbin/udevadm.ori && \
 	wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key |  apt-key add - && \
 	sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list' && \
 	apt-get update && \
-	apt-get install jenkins
+	apt-get install -y jenkins && \
 	
 # Add files.
 ADD udevadm.sh /sbin/udevadm

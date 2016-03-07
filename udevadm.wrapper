@@ -1,7 +1,7 @@
 #!/bin/sh  
 # This's a wrapper of udevadm
 
-if [ 0 -lt 1 ]; then
+if [ $# -lt 1 ]; then
     echo "Usage : udevadm -h"
     exit 1
 fi
