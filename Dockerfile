@@ -10,7 +10,7 @@ MAINTAINER woodrowshen woodrow.shen@canonical.com
 RUN \
 	apt-get update && \
 	apt-get install -y software-properties-common && \
-	apt-get install -y curl git htop man unzip vim wget && \
+	apt-get install -y curl git htop man unzip vim wget sudo && \
 	add-apt-repository -y ppa:snappy-dev/tools && \
 	apt-get update && \
 	apt-get install -y ubuntu-device-flash snappy-tools squashfs-tools && \
