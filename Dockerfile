@@ -13,6 +13,7 @@ RUN \
 	apt-get install -y curl git htop man unzip vim wget sudo && \
 	add-apt-repository -y ppa:snappy-dev/tools && \
 	apt-get update && \
+	apt-get install -y grub-common kmod && \
 	apt-get install -y ubuntu-device-flash snappy-tools squashfs-tools && \
 	mv /sbin/udevadm /sbin/udevadm.ori && \
 	wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key |  apt-key add - && \
