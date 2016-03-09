@@ -6,6 +6,10 @@ FROM ubuntu:15.04
 
 MAINTAINER woodrowshen woodrow.shen@canonical.com
 
+# Add multiverse to sourcelist
+RUN echo "deb http://archive.ubuntu.com/ubuntu vivid multiverse" >> /etc/apt/sources.list
+RUN echo "deb http://archive.ubuntu.com/ubuntu vivid-updates multiverse" >> /etc/apt/sources.list
+
 # Install necessary packages.
 RUN \
 	apt-get update && \
@@ -19,10 +23,10 @@ RUN \
 	wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key |  apt-key add - && \
 	sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list' && \
 	apt-get update && \
-	apt-get install -y jenkins && \
+	apt-get install -y jenkins
 	
 # Add files.
-ADD udevadm.sh /sbin/udevadm
+ADD udevadm.wrapper /sbin/udevadm
 
 # Define default command.
 CMD ["bash"]
