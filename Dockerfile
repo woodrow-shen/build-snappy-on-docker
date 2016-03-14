@@ -14,10 +14,11 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu vivid-updates multiverse" >> /etc
 RUN \
 	apt-get update && \
 	apt-get install -y software-properties-common && \
-	apt-get install -y curl git htop man unzip vim wget sudo && \
+	apt-get install -y curl git htop man unzip vim wget && \
 	add-apt-repository -y ppa:snappy-dev/tools && \
 	apt-get update && \
 	apt-get install -y grub-common kmod kvm ovmf && \
+	apt-get install -y sudo cpio && \
 	apt-get install -y ubuntu-device-flash snappy-tools squashfs-tools && \
 	mv /sbin/udevadm /sbin/udevadm.ori && \
 	wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key |  apt-key add - && \
@@ -30,5 +31,4 @@ ADD udevadm.wrapper /sbin/udevadm
 ADD OVMF.fd /test
 
 # Define default command.
-CMD ["bash"]
-
+CMD ["startup.sh"]
