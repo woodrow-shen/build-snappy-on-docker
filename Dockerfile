@@ -28,7 +28,8 @@ RUN \
 	
 # Add files.
 ADD udevadm.wrapper /sbin/udevadm
-ADD OVMF.fd /test
+ADD OVMF.fd /test/
+ADD startup.sh /
 
 # Define default command.
-CMD ["startup.sh"]
+CMD ["/startup.sh"]
