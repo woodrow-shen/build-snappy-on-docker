@@ -15,7 +15,6 @@ RUN \
 	apt-get update && \
 	apt-get install -y software-properties-common && \
 	apt-get install -y curl git htop man unzip vim wget && \
-	apt-get update && \
 	apt-get install -y grub-common kmod kvm ovmf && \
 	apt-get install -y sudo cpio && \
 	apt-get install -y ubuntu-device-flash ubuntu-snappy squashfs-tools && \
