@@ -16,15 +16,19 @@ RUN \
 	apt-get install -y sudo software-properties-common && \
 	apt-get install -y curl git htop man unzip vim wget && \
 	apt-get install -y grub-common kmod kvm ovmf udev && \
-	mv /sbin/udevadm /sbin/udevadm.ori && \
 	wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key |  apt-key add - && \
 	sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list' && \
 	apt-get update && \
 	apt-get install -y jenkins
-	
+	dpkg --add-architecture i386
+	apt-get install -y gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat cpio
+	apt-get install -y libsdl1.2-dev xterm
+	apt-get install -y make xsltproc docbook-utils fop dblatex xmlto
+	apt-get install -y autoconf automake libtool libglib2.0-dev
+	apt-get install -y lib32stdc++6 libxml2:i386 libxml2-dev:i386
+	apt-get install -y imagemagick
+
 # Add files.
-ADD udevadm.wrapper /sbin/udevadm
-ADD OVMF.fd /test/
 ADD startup.sh /
 
 # Define default command.
