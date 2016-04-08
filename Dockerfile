@@ -25,7 +25,8 @@ RUN \
 	apt-get install -y make xsltproc docbook-utils fop dblatex xmlto && \
 	apt-get install -y autoconf automake libtool libglib2.0-dev && \
 	apt-get install -y lib32stdc++6 && \
-	apt-get install -y imagemagick
+	apt-get install -y imagemagick && \
+	apt-get install -y dosfstools
 
 # Add files.
 ADD startup.sh /
