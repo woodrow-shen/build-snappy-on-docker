@@ -15,7 +15,7 @@ RUN \
 	apt-get update && \
 	apt-get install -y sudo software-properties-common && \
 	apt-get install -y curl git htop man unzip vim wget && \
-	apt-get install -y grub-common kmod kvm ovmf udev davfs2 && \
+	apt-get install -y grub-common kmod kvm ovmf udev && \
 	mv /sbin/udevadm /sbin/udevadm.ori && \
 	wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key |  apt-key add - && \
 	sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list' && \
