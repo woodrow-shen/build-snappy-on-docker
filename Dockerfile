@@ -18,7 +18,7 @@ RUN \
 	add-apt-repository -y ppa:snappy-dev/tools && \
 	apt-get update && \
 	apt-get install -y grub-common kmod kvm ovmf && \
-	apt-get install -y sudo cpio davfs2 && \
+	apt-get install -y sudo cpio && \
 	apt-get install -y ubuntu-device-flash snappy-tools squashfs-tools && \
 	mv /sbin/udevadm /sbin/udevadm.ori && \
 	wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key |  apt-key add - && \
